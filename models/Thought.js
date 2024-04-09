@@ -3,7 +3,7 @@ const { ReactionSchema } = require('./Reaction');
 
 const ThoughtSchema = new Schema(
     {
-        reactionId: {
+        thoughtText: {
             type: String,
             required: true,
             minlength: 1,
@@ -23,14 +23,14 @@ const ThoughtSchema = new Schema(
             type: String,
             required: true
         },
-        reactions: [ReactionSchema]
+        reactions: [ReactionSchema],
     },
     {
         toJSON: {
             virtuals: true,
-            getters: true
+            getters: true,
         },
-        id: false
+        id: false,
     }
 );
 
@@ -38,6 +38,6 @@ ThoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
 
-const Thought = mongoose.model('Thought', ThoughtSchema);
+const Thought = model('thought', ThoughtSchema);
 
 module.exports = { Thought, ThoughtSchema };
