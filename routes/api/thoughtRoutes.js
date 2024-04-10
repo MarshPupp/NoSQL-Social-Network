@@ -13,7 +13,7 @@ router.get('/thoughts', getAllThoughts);
 
 router.post('/thoughts', createThought);
 
-router.get('/thoghts/:id', getThoughtById);
+router.get('/thoughts/:id', getThoughtById);
 
 router.put('thoughts/:id', updateThoughtById);
 

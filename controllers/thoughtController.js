@@ -11,8 +11,7 @@ module.exports = {
     },
     async createThought(req, res) {
         try {
-            const thought = new Thought(req.body);
-            await thought.save();
+            const thought = await Thought.createThought(req.body);
             res.status(200).json(thought);
         } catch (error) {
             res.status(500).json(error);
